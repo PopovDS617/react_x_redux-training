@@ -17,7 +17,7 @@ const cartSlice = createSlice({
     addToCart(state, action) {
       const updatedItems = [...state.items];
       const existedItemIndex = updatedItems.findIndex(
-        (item) => item.title === action.payload.title
+        (item) => item.key === action.payload.key
       );
 
       const existedItem = updatedItems[existedItemIndex];
@@ -49,7 +49,7 @@ const cartSlice = createSlice({
     increase(state, action) {
       const updatedItems = [...state.items];
       const existedItemIndex = updatedItems.findIndex(
-        (item) => item.title === action.payload.title
+        (item) => item.key === action.payload.key
       );
 
       const existedItem = updatedItems[existedItemIndex];
@@ -67,7 +67,7 @@ const cartSlice = createSlice({
     decrease(state, action) {
       const updatedItems = [...state.items];
       const existedItemIndex = updatedItems.findIndex(
-        (item) => item.title === action.payload.title
+        (item) => item.key === action.payload.key
       );
 
       const existedItem = updatedItems[existedItemIndex];

@@ -9,12 +9,12 @@ const Cart = (props) => {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
-  const addHandler = (title) => {
-    dispatch(cartActions.increase({ title: title }));
+  const addHandler = (key) => {
+    dispatch(cartActions.increase({ key: key }));
   };
 
-  const removeHandler = (title) => {
-    dispatch(cartActions.decrease({ title: title }));
+  const removeHandler = (key) => {
+    dispatch(cartActions.decrease({ key: key }));
   };
 
   const cartItemsList = cartItems.map((item) => (
@@ -24,8 +24,8 @@ const Cart = (props) => {
       quantity={item.quantity}
       total={item.total}
       price={item.price}
-      onAdd={addHandler.bind(null, item.title)}
-      onRemove={removeHandler.bind(null, item.title)}
+      onAdd={addHandler.bind(null, item.key)}
+      onRemove={removeHandler.bind(null, item.key)}
     />
   ));
 
