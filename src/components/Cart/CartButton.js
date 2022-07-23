@@ -8,7 +8,6 @@ const CartButton = (props) => {
 
   const showCartHandler = () => {
     dispatch(cartActions.showCart());
-    console.log("open cart");
   };
 
   return (
