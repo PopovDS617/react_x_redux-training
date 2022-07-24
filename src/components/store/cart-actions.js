@@ -18,7 +18,12 @@ export const fetchCartData = () => {
     };
     try {
       const cartData = await fetchData();
-      dispatch(cartActions.replaceCart(cartData));
+      dispatch(
+        cartActions.replaceCart({
+          items: cartData.items || [],
+          totalAmount: cartData.totalAmount,
+        })
+      );
     } catch (error) {
       dispatch(
         uiActions.showNotification({
@@ -46,10 +51,12 @@ export const sendCartData = (cart) => {
         "https://redux-78655-default-rtdb.europe-west1.firebasedatabase.app/cart.json",
         {
           method: "PUT",
-          body: JSON.stringify(cart),
+          body: JSON.stringify({
+            items: cart.items,
+            totalAmount: cart.totalAmount,
+          }),
         }
       );
-
       if (!response.ok) {
         throw new Error("something went wrong or dunno");
       }
