@@ -4,9 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 
 const Products = (props) => {
-  // const title = useSelector((state) => state.items.title);
-  // const price = useSelector((state) => state.items.price);
-  // const description = useSelector((state) => state.items.description);
   const dispatch = useDispatch();
   const list = useSelector((state) => state.items.list);
 
